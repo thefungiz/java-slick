@@ -9,6 +9,11 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
+/**
+ * Class for initialization of game.
+ * @author thenewguyz
+ *
+ */
 public class FirstGame implements Game {
 	
 	private Player player;
@@ -22,7 +27,6 @@ public class FirstGame implements Game {
 		
 		kb = new KeyBoard();	
 		player = new Player(kb);
-
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {

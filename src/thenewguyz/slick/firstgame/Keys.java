@@ -1,5 +1,10 @@
 package thenewguyz.slick.firstgame;
 
+/**
+ * Enum maps keycodes to x and y coords.
+ * @author thenewguyz
+ *
+ */
 public enum Keys {
 
 	UP(200, 0, -1),

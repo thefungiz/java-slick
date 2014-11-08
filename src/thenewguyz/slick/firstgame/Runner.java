@@ -4,8 +4,12 @@ import org.lwjgl.LWJGLException;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.SlickException;
 
+/**
+ * Generic runner class. WOW.
+ * @author thenewguyz
+ *
+ */
 public class Runner {
-
 	
 	public static void main(String[] args) throws LWJGLException {
 		
