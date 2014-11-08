@@ -8,6 +8,7 @@ public class KeyBoard implements KeyListener {
 
 	private int code, x, y;
 	private boolean[] board;
+	private boolean pressed;
 	
 	public KeyBoard() {
 		board = new boolean[256];
@@ -19,6 +20,7 @@ public class KeyBoard implements KeyListener {
 		code = -1;
 		x = 0;
 		y = 0;
+		pressed = false;
 	}
 
 	@Override
@@ -44,10 +46,16 @@ public class KeyBoard implements KeyListener {
 		
 	}
 
+	public boolean isPressed() {
+		return pressed;
+	}
+	
 	
 	//@Override
 	public void keyPressed(int key, char c) {
 				
+		pressed = true;
+		
 		board[key] = true;		
 		code = key;		
 		setDirOnPress(key);
@@ -56,7 +64,9 @@ public class KeyBoard implements KeyListener {
 	
 	@Override
 	public void keyReleased(int key, char c) {
-						
+				
+		pressed = false;
+		
 		board[key] = false;
 		code = -1;	
 		setDirOnRelease(key);
