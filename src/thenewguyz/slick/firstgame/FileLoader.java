@@ -1,4 +1,4 @@
-package com.game1;
+package thenewguyz.slick.firstgame;
 
 
 public abstract class FileLoader {

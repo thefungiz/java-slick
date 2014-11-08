@@ -1,4 +1,4 @@
-package com.example;
+package thenewguyz.slick.sample;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

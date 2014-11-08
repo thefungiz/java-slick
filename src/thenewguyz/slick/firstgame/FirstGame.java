@@ -1,4 +1,4 @@
-package com.game1;
+package thenewguyz.slick.firstgame;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.GLContext;

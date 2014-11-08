@@ -1,4 +1,4 @@
-package com.utils;
+package thenewguyz.utils;
 
 public class Console {
 

@@ -1,4 +1,4 @@
-package com.game1;
+package thenewguyz.slick.firstgame;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
