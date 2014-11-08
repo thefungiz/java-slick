@@ -11,8 +11,10 @@ import org.newdawn.slick.SpriteSheet;
 
 public class FirstGame implements Game {
 
+	private final int SPRITE_x = GameConfig.WINDOW_WIDTH/2 - (GameConfig.SPRITE_WIDTH * GameConfig.SCALE)/2;
+	private final int SPRITE_Y = GameConfig.WINDOW_HIGHT/2 - (GameConfig.SPRITE_HEIGHT * GameConfig.SCALE)/2;
+	
 	private String title;
-	private boolean[] board;
 	private KeyBoard kb;
 	private ImageLoader il;
 	private Image i;
@@ -22,19 +24,13 @@ public class FirstGame implements Game {
 		
 		this.title = title;
 		
-		board = new boolean[256];
-		
-		for (int i = 0; i < board.length; i++) {
-			board[i] = false;
-		}
-		
 		kb = new KeyBoard();		
 
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		
-		g.drawImage(ss.getSprite(kb.getX() + 1, kb.getY() + 1), 100, 100);
+		g.drawImage(ss.getSprite(0, 0), SPRITE_x, SPRITE_Y);
 		
 		kb.renderKeyboardInfo(g);
 	}
@@ -47,9 +43,9 @@ public class FirstGame implements Game {
 			e.printStackTrace();
 		}
 		
-		il = new ImageLoader("TestSpriteSheet.png");
+		il = new ImageLoader("png/girl.png");
 		i = il.getImage();
-		ss = new SpriteSheet(i, 32, 32, 0, 0);
+		ss = new SpriteSheet(i, GameConfig.SPRITE_WIDTH * GameConfig.SCALE, GameConfig.SPRITE_HEIGHT * GameConfig.SCALE, GameConfig.SPRITE_SPACING, GameConfig.SPRITE_MARGIN);
 	}
 
 	public void update(GameContainer gc, int c) throws SlickException {

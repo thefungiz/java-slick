@@ -11,7 +11,7 @@ public class ImageLoader extends FileLoader {
 	
 	public Image getImage() {
 		try {
-			return new Image(URL);
+			return new Image(URL).getScaledCopy(GameConfig.SCALE);
 		} catch (SlickException e) {
 			e.printStackTrace();
 			return null;
