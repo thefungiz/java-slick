@@ -6,6 +6,8 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
+import thenewguyz.utils.Console;
+
 /**
  * Class for managing the player.
  * All of player functionality should go here.
@@ -24,12 +26,25 @@ public class Player {
 	private ImageLoader il;
 	private Image s;
 	
+	// Current direction
+	private boolean cUp, cDown, cLeft, cRight;
+
+	private boolean moving;
+	
 	/**
 	 * Constructor takes KeyBoard as a param to isolate player functionality from the rest of the game.
 	 * @param 	kb	KeyBoard to use for input	
 	 */
 	public Player(KeyBoard kb) {
 		this.kb = kb;
+		
+		// Start in the down position
+		cDown = false;
+		cUp = false;
+		cLeft = false;
+		cRight = false;
+
+		moving = false;
 	}
 	
 	public void init() throws SlickException {
@@ -42,24 +57,42 @@ public class Player {
 	
 	public void update(GameContainer gc, int c) throws SlickException {
 		
-		this.updateSprite();
-		
+		this.move();
 	}
 	
 	private void updateSprite() {
 		
-		// TODO 
-		// Logic needs to be changed for 2D movement
+		moving = kb.getUp() || kb.getDown() || kb.getLeft() || kb.getRight();	
 		
-		if (kb.getX() == 0 && kb.getY() == 0) {			// Return of nothing is changed.
-			return;										// Keeps the player from changing directions
-		}												// once a key is released.
+		Console.write("hit");
 		
-		if (kb.getX() == 1) {			
-			s = kb.getY() == 1 ? ss.getSprite(1, 1) : ss.getSprite(4, 1);
-		} else {			
-			s = kb.getY() == 1 ? ss.getSprite(4, 0) : ss.getSprite(1, 0);			
-		}		
+		this.findDirection();
+		
+		if (cUp) {
+			s = ss.getSprite(1, 0);			
+		} else if (cDown) {
+			s =  ss.getSprite(1, 1);			
+		} else if (cRight) {			
+			s = ss.getSprite(4, 1);			
+		} else if (cLeft) {
+			s = ss.getSprite(4, 0);
+		}
+	}
+	
+	private void move() {
+		
+		
+		this.updateSprite();		
+	}
+	
+	private void findDirection() {
+
+		// If none of the other keys are pressed down and the key is pressed
+		cUp = (!(cDown || cLeft || cRight)) && kb.getUp();
+		cDown = (!(cLeft || cRight || cUp)) && kb.getDown();
+		cLeft = (!(cRight || cUp || cDown)) && kb.getLeft();
+		cRight = (!(cUp || cDown || cLeft)) && kb.getRight();		
+	
 	}
 	
 	public void render(Graphics g) throws SlickException {

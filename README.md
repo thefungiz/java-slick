@@ -1,2 +1,2 @@
-java-slick
+java-slick :D
 ==========
