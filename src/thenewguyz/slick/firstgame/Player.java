@@ -36,6 +36,7 @@ public class Player {
 	 * @param 	kb	KeyBoard to use for input	
 	 */
 	public Player(KeyBoard kb) {
+		
 		this.kb = kb;
 		
 		// Start in the down position
@@ -79,8 +80,7 @@ public class Player {
 		}
 	}
 	
-	private void move() {
-		
+	private void move() {		
 		
 		this.updateSprite();		
 	}
