@@ -6,6 +6,7 @@ import org.newdawn.slick.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.tiled.TiledMap;
 
 /**
  * Class for initialization of game.
@@ -15,20 +16,25 @@ import org.newdawn.slick.SlickException;
 public class FirstGame implements Game {
 	
 	private Player player;
+	private TiledMap map;
 	private String title;
 	private KeyBoard kb;
-
+	private int mapX, mapY;
 	
-	public FirstGame(String title) {		
+	public FirstGame(String title) throws SlickException {		
 		
 		this.title = title;
 		
 		kb = new KeyBoard();	
 		player = new Player(kb);
+		mapX = 0;
+		mapY = 0;
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 
+		map.render(mapX, mapY);
+		
 		player.render(g);
 		
 		kb.renderKeyboardInfo(g);
@@ -42,7 +48,10 @@ public class FirstGame implements Game {
 			e.printStackTrace();
 		}
 		
+		map = new TiledMap("tmx/test2.tmx");
+		
 		player.init();
+		
 
 	}
 

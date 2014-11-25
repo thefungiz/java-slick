@@ -11,7 +11,7 @@ import org.newdawn.slick.SlickException;
  */
 public class Runner {
 	
-	public static void main(String[] args) throws LWJGLException {
+	public static void main(String[] args) throws LWJGLException, SlickException {
 		
 		FirstGame g = new FirstGame(GameConfig.GAME_TITLE);
 
