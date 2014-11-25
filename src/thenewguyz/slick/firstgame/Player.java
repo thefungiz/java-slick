@@ -20,10 +20,8 @@ public class Player {
 	private final int SPRITE_Y = GameConfig.WINDOW_HIGHT/2 - (GameConfig.SPRITE_HEIGHT * GameConfig.SCALE)/2;
 	
 	private KeyBoard kb;
-	private Image i;
 	private SpriteSheet ss;
 	private ImageLoader il;
-	private Image s;
 	private Animation playerAnimation;
 	private Animation animateLeft;
 	private Animation animateRight;
@@ -43,7 +41,6 @@ public class Player {
 		
 		this.kb = kb;
 		
-		// Start in the down position
 		cDown = false;
 		cUp = false;
 		cLeft = false;
@@ -55,43 +52,41 @@ public class Player {
 	public void init() throws SlickException {
 		
 		il = new ImageLoader(GameConfig.CHARACTER_SPRITE_SHEET_URL);
-		i = il.getImage(true);
-		ss = new SpriteSheet(i, GameConfig.SPRITE_WIDTH * GameConfig.SCALE, GameConfig.SPRITE_HEIGHT * GameConfig.SCALE, GameConfig.SPRITE_SPACING, GameConfig.SPRITE_MARGIN);
-		s = ss.getSprite(1, 1);
+		ss = new SpriteSheet(il.getImage(true), GameConfig.SPRITE_WIDTH * GameConfig.SCALE, GameConfig.SPRITE_HEIGHT * GameConfig.SCALE, GameConfig.SPRITE_SPACING, GameConfig.SPRITE_MARGIN);
 		
 		animateLeft = new Animation();
-		animateLeft.addFrame(ss.getSprite(4, 0), 400);
-		animateLeft.addFrame(ss.getSprite(3, 0), 400);
-		animateLeft.addFrame(ss.getSprite(4, 0), 400);
-		animateLeft.addFrame(ss.getSprite(5, 0), 400);
+		animateLeft.addFrame(ss.getSprite(4, 0), GameConfig.WALK_DURATION);
+		animateLeft.addFrame(ss.getSprite(3, 0), GameConfig.WALK_DURATION);
+		animateLeft.addFrame(ss.getSprite(4, 0), GameConfig.WALK_DURATION);
+		animateLeft.addFrame(ss.getSprite(5, 0), GameConfig.WALK_DURATION);
 		animateLeft.setLooping(true);
 		this.animateLeft.start();
 		animateLeft.setPingPong(true);
 		
 		
 		animateRight = new Animation();
-		animateRight.addFrame(ss.getSprite(4, 1), 400);
-		animateRight.addFrame(ss.getSprite(3, 1), 400);
-		animateRight.addFrame(ss.getSprite(4, 1), 400);
-		animateRight.addFrame(ss.getSprite(5, 1), 400);
+		animateRight.addFrame(ss.getSprite(4, 1), GameConfig.WALK_DURATION);
+		animateRight.addFrame(ss.getSprite(3, 1), GameConfig.WALK_DURATION);
+		animateRight.addFrame(ss.getSprite(4, 1), GameConfig.WALK_DURATION);
+		animateRight.addFrame(ss.getSprite(5, 1), GameConfig.WALK_DURATION);
 		animateRight.setLooping(true);
 		this.animateRight.start();
 		animateRight.setPingPong(true);
 		
 		animateUp = new Animation();
-		animateUp.addFrame(ss.getSprite(1, 0), 400);
-		animateUp.addFrame(ss.getSprite(0, 0), 400);
-		animateUp.addFrame(ss.getSprite(1, 0), 400);
-		animateUp.addFrame(ss.getSprite(2, 0), 400);
+		animateUp.addFrame(ss.getSprite(1, 0), GameConfig.WALK_DURATION);
+		animateUp.addFrame(ss.getSprite(0, 0), GameConfig.WALK_DURATION);
+		animateUp.addFrame(ss.getSprite(1, 0), GameConfig.WALK_DURATION);
+		animateUp.addFrame(ss.getSprite(2, 0), GameConfig.WALK_DURATION);
 		animateUp.setLooping(true);
 		this.animateUp.start();
 		animateUp.setPingPong(true);
 		
 		animateDown = new Animation();
-		animateDown.addFrame(ss.getSprite(1, 1), 400);
-		animateDown.addFrame(ss.getSprite(0, 1), 400);
-		animateDown.addFrame(ss.getSprite(1, 1), 400);
-		animateDown.addFrame(ss.getSprite(2, 1), 400);
+		animateDown.addFrame(ss.getSprite(1, 1), GameConfig.WALK_DURATION);
+		animateDown.addFrame(ss.getSprite(0, 1), GameConfig.WALK_DURATION);
+		animateDown.addFrame(ss.getSprite(1, 1), GameConfig.WALK_DURATION);
+		animateDown.addFrame(ss.getSprite(2, 1), GameConfig.WALK_DURATION);
 		animateDown.setLooping(true);
 		this.animateDown.start();
 		animateDown.setPingPong(true);
@@ -99,49 +94,33 @@ public class Player {
 		playerAnimation = animateDown;
 	}
 	
-	public void update(GameContainer gc, int c) throws SlickException {
+	public void update(GameContainer gc, int c) throws SlickException {		
 		
 		this.move();
 	}
 	
-//	private void updateSprite() {
-//		
-//		moving = kb.getUp() || kb.getDown() || kb.getLeft() || kb.getRight();	
-//		
-//		this.findDirection();
-//		
-//		if (cUp) {
-//			s = ss.getSprite(1, 0);			
-//		} else if (cDown) {
-//			s =  ss.getSprite(1, 1);			
-//		} else if (cRight) {			
-//			s =  ss.getSprite(4, 1);	
-//		} else if (cLeft) {
-//			s =  ss.getSprite(4, 0);		
-//		}
-//	}
-	
 	private void move() {		
 		
-		// this.updateSprite();		
 		this.animate();
 	}
 	
 	private void findDirection() {
-
+		
 		// If none of the other keys are pressed down and the key is pressed
 		cUp = (!(cDown || cLeft || cRight)) && kb.getUp();
 		cDown = (!(cLeft || cRight || cUp)) && kb.getDown();
 		cLeft = (!(cRight || cUp || cDown)) && kb.getLeft();
-		cRight = (!(cUp || cDown || cLeft)) && kb.getRight();		
-	
+		cRight = (!(cUp || cDown || cLeft)) && kb.getRight();			
 	}
 	
 	public void render(Graphics g) throws SlickException {
-
-		// g.drawImage(s, SPRITE_x, SPRITE_Y);
 		
-		playerAnimation.draw(SPRITE_x, SPRITE_Y);
+		this.playerAnimation.draw(SPRITE_x, SPRITE_Y);		
+	}
+	
+	public boolean isPlayerAnimationStopped() {
+		
+		return playerAnimation.isStopped();
 		
 	}
 	
@@ -149,11 +128,12 @@ public class Player {
 		
 		moving = kb.getUp() || kb.getDown() || kb.getLeft() || kb.getRight();	
 		
-		if (!moving && playerAnimation.getFrame() != 0) {
-			return;
-		}
-		
 		if (!moving) {
+			// If previous animation has not finished, return.
+			if (playerAnimation.getFrame() != 0) {
+				return;
+			}
+			// Stop animation if not moving and previous animation is finished.
 			playerAnimation.stop();
 		}
 		
@@ -171,8 +151,8 @@ public class Player {
 		
 		if (playerAnimation.isStopped()) {
 			playerAnimation.restart();
-		}
-		
-	}
+		}		
+	}	
 	
 }
+// The end bra.
