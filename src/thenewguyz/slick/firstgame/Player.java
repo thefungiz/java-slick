@@ -104,26 +104,26 @@ public class Player {
 		this.move();
 	}
 	
-	private void updateSprite() {
-		
-		moving = kb.getUp() || kb.getDown() || kb.getLeft() || kb.getRight();	
-		
-		this.findDirection();
-		
-		if (cUp) {
-			s = ss.getSprite(1, 0);			
-		} else if (cDown) {
-			s =  ss.getSprite(1, 1);			
-		} else if (cRight) {			
-			s =  ss.getSprite(4, 1);	
-		} else if (cLeft) {
-			s =  ss.getSprite(4, 0);		
-		}
-	}
+//	private void updateSprite() {
+//		
+//		moving = kb.getUp() || kb.getDown() || kb.getLeft() || kb.getRight();	
+//		
+//		this.findDirection();
+//		
+//		if (cUp) {
+//			s = ss.getSprite(1, 0);			
+//		} else if (cDown) {
+//			s =  ss.getSprite(1, 1);			
+//		} else if (cRight) {			
+//			s =  ss.getSprite(4, 1);	
+//		} else if (cLeft) {
+//			s =  ss.getSprite(4, 0);		
+//		}
+//	}
 	
 	private void move() {		
 		
-		this.updateSprite();		
+		// this.updateSprite();		
 		this.animate();
 	}
 	
@@ -139,9 +139,9 @@ public class Player {
 	
 	public void render(Graphics g) throws SlickException {
 
-		g.drawImage(s, SPRITE_x, SPRITE_Y);
+		// g.drawImage(s, SPRITE_x, SPRITE_Y);
 		
-		playerAnimation.draw(200, 200);
+		playerAnimation.draw(SPRITE_x, SPRITE_Y);
 		
 	}
 	

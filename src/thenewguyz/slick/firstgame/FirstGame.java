@@ -5,6 +5,7 @@ import org.lwjgl.opengl.GLContext;
 import org.newdawn.slick.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
@@ -20,6 +21,7 @@ public class FirstGame implements Game {
 	private String title;
 	private KeyBoard kb;
 	private int mapX, mapY;
+	private Music music;
 	
 	public FirstGame(String title) throws SlickException {		
 		
@@ -49,7 +51,8 @@ public class FirstGame implements Game {
 		}
 		
 		map = new TiledMap("tmx/test2.tmx");
-		
+		music = new Music("audio/test.ogg");
+		music.play();
 		player.init();
 		
 
@@ -60,6 +63,7 @@ public class FirstGame implements Game {
 		gc.getInput().addKeyListener(kb);
 		
 		player.update(gc, c);
+
 		
 	}
 
