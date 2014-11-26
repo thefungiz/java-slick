@@ -7,7 +7,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.tiled.TiledMap;
 
 /**
  * Class for initialization of game.
@@ -48,7 +47,7 @@ public class FirstGame implements Game {
 			e.printStackTrace();
 		}
 		
-		map = new Map(kb, 0, 0, 8);
+		map = new Map(kb, GameConfig.MAP_START_X_TILE * GameConfig.SCALE, GameConfig.MAP_START_Y_TILE * GameConfig.SCALE, GameConfig.MAP_SPEED);
 		music = new Music("audio/test.ogg");
 		music.play();
 		player.init();
@@ -59,7 +58,7 @@ public class FirstGame implements Game {
 		
 		gc.getInput().addKeyListener(kb);
 		
-		map.update(this.isPlayerMoving());
+		map.update();
 		
 		player.update(gc, c);
 		

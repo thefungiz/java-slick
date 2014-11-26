@@ -14,10 +14,6 @@ import org.newdawn.slick.SpriteSheet;
  *
  */
 public class Player {
-
-	// Coords to center the player on the board.
-	private final int SPRITE_x = GameConfig.WINDOW_WIDTH/2 - (GameConfig.SPRITE_WIDTH * GameConfig.SCALE)/2;
-	private final int SPRITE_Y = GameConfig.WINDOW_HIGHT/2 - (GameConfig.SPRITE_HEIGHT * GameConfig.SCALE)/2;
 	
 	private KeyBoard kb;
 	private SpriteSheet ss;
@@ -115,7 +111,7 @@ public class Player {
 	
 	public void render(Graphics g) throws SlickException {
 		
-		this.playerAnimation.draw(SPRITE_x, SPRITE_Y);		
+		this.playerAnimation.draw(GameConfig.SPRITE_X, GameConfig.SPRITE_Y);		
 	}
 	
 	public boolean isPlayerAnimationStopped() {
@@ -129,10 +125,10 @@ public class Player {
 		moving = kb.getUp() || kb.getDown() || kb.getLeft() || kb.getRight();	
 		
 		if (!moving) {
-			// If previous animation has not finished, return.
-			if (playerAnimation.getFrame() != 0) {
-				return;
-			}
+//			// If previous animation has not finished, return.
+//			if (playerAnimation.getFrame() != 0) {
+//				return;
+//			}
 			// Stop animation if not moving and previous animation is finished.
 			playerAnimation.stop();
 		}

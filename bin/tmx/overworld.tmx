@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="39" height="28" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="terrain" tilewidth="32" tileheight="32">
+  <image source="../png/terrain.png" width="1024" height="1024"/>
+ </tileset>
+ <layer name="grass" width="39" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3TPQ4AEAxAYb2Kq5mdy+l6BwODAfHTocOTfLHVSxCC3VJpct+L/M1LYkeHJl2wPO+lbYe28zuNjtriBG33bZ7em8e/AAAAAOBeBa53xr4QEQAA
+  </data>
+ </layer>
+ <layer name="under" width="39" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3TsQ2AIBSE4ccbzk0cRUumUEtcAltHcQYhwcJEE0gUrrgvef2fQ0WoFWtEDtO64p0DbdtBd3OpawVsi9C/NwvchvovRH/sNmj5jfp9x5NN828O11dsK+FDUxduAWyLprRdztvXdm2HygO3ERER0d0JKNEPtRARAAA=
+  </data>
+ </layer>
+ <layer name="outter-cliff" width="39" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3YwQ3CMAwF0DQDoJY9ArR7ALPRTWASYBLaCbDVWLVyIiYmHPylr+TS6ClpD2lonNsV6h46eOemOIYv16LnTwV6ho7RdYHxKFyH23AslVez7NsMvUMf0Gfm+kHBhpZbtF2TeY5Pw9b65Ux79s7hePB5Pg0bhs50YkZyzhVtdKZDYqJ5TRudabpnffxut76ejXxdNHZ+7acuTRs3jsJ1tW2YNmOveH5hk8ZssphNFrPJYjZZzCaL2WQxmyzchnfVzR+V7s7Su7d28R/BG0pKP1wQEQAA
+  </data>
+ </layer>
+ <layer name="over" width="39" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3BAQEAAACCIP+vbkhAAQAAAHwZP37yNRARAAA=
+  </data>
+ </layer>
+ <layer name="over" width="39" height="28">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3OIQ0AAAgAMPrnIgpB0BgsG/sTPAJ+yOvAoq4DAAAADA0YE6WHEBEAAA==
+  </data>
+ </layer>
+</map>

@@ -17,7 +17,7 @@ public class Runner {
 
 		try {
 			AppGameContainer agc = new AppGameContainer(g);
-			agc.setDisplayMode(GameConfig.WINDOW_WIDTH, GameConfig.WINDOW_HIGHT, false);
+			agc.setDisplayMode(GameConfig.WINDOW_WIDTH * GameConfig.SCALE * GameConfig.TILE_SIZE, GameConfig.WINDOW_HEIGHT * GameConfig.SCALE * GameConfig.TILE_SIZE, false);
 			
 			agc.start();
 		} catch (SlickException e) {

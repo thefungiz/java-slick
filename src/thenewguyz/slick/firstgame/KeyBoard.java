@@ -55,10 +55,10 @@ public class KeyBoard implements KeyListener {
 		
 		pCode = key;	
 		
-		up = key == Keys.UP.getCode() ? true : up;
-		down = key == Keys.DOWN.getCode() ? true : down;
-		left = key == Keys.LEFT.getCode() ? true : left;
-		right = key == Keys.RIGHT.getCode() ? true : right;		
+		up = key == Input.KEY_UP ? true : up;
+		down = key == Input.KEY_DOWN ? true : down;
+		left = key == Input.KEY_LEFT ? true : left;
+		right = key == Input.KEY_RIGHT ? true : right;		
 	}
 	
 	@Override
@@ -68,10 +68,10 @@ public class KeyBoard implements KeyListener {
 
 		rCode = key;	
 		
-		up = key == Keys.UP.getCode() ? false : up;
-		down = key == Keys.DOWN.getCode() ? false : down;
-		left = key == Keys.LEFT.getCode() ? false : left;
-		right = key == Keys.RIGHT.getCode() ? false : right;
+		up = key == Input.KEY_UP  ? false : up;
+		down = key == Input.KEY_DOWN  ? false : down;
+		left = key == Input.KEY_LEFT ? false : left;
+		right = key == Input.KEY_RIGHT ? false : right;
 	}
 	
 	public boolean getLeft() {
